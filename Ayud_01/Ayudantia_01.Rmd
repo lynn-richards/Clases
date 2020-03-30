@@ -53,7 +53,7 @@ Al trabajar con bases de datos es necesario saber que existen múltiples funcion
 
 ```{r paquetes}
 #install.packages("data.table")
-#install.packages("titanic")
+install.packages("titanic")
 library(data.table)
 library(titanic)
 Titanic <- data.table(titanic_train)  ## Notar que ahí creamos un objeto que se llama Titanic, al cual transformamos en clase data.table
@@ -155,3 +155,6 @@ Titanic[,mean(Age, na.rm = T), by = c("Survived","Sex")]
 Titanic[,median(Age, na.rm = T), by = c("Survived","Sex")]
 Titanic[,quantile(Age, na.rm = T), by = c("Survived","Sex")]
 ```
+
+
+
