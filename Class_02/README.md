@@ -24,7 +24,7 @@ Class 02: Data Management
 #### Tarea_02: Manipulación, limpieza y Descripción de una base de datos
 
 - [Instrucciones de cómo mandar las tareas](Instrucciones_de_como_hacer_las_tareas.pdf)
-- **Link de la tarea**: [https://classroom.github.com/g/XkPVGFNU](https://classroom.github.com/g/XkPVGFNU)
+- **Link de la tarea**: [https://classroom.github.com/a/PRib2xu9](https://classroom.github.com/a/PRib2xu9)
 - Fecha de entrega: Lunes 30 de Marzo @ 5pm
 
  
