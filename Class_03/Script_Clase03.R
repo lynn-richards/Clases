@@ -8,7 +8,7 @@
 #---- Part 1: Data Management  -------------------
 
 # Reading an exporting data
-
+rm(list = ls())
 library(readxl)
 library(data.table)
 casos<-data.table(read_excel("Class_02/2020-03-17-Casos-confirmados.xlsx",na = "—",trim_ws = TRUE,col_names = TRUE),stringsAsFactors = FALSE)
@@ -49,13 +49,12 @@ casosRM[,.N,by=.(Sexo)]
 casosRM[,.N,by=.(Sexo,`Centro de salud`)]
 
 #Collapsing by Centro de Salud 
-
+str(casosRM$`Casos confirmados`)
+as.numeric(casosRM$`Casos confirmados`)
 casosRM[,sum(`Casos confirmados`,na.rm = T),by=.(`Centro de salud`)][,V1/sum(V1)] #me entrega los porcentajes de los casos confirmados por clinica en la region metropolitana.
 obj1<-casosRM[,mean(`Casos confirmados`,na.rm = T),by=.(`Centro de salud`)]
 obj1[,V1/sum(V1,na.rm = T)]
-
 # collapsing by average age
-casosRM[`Casos confirmados`]
 
 A<-casosRM[,.(AvAge=mean(Edad,na.rm = T)),by=.(`Centro de salud`)]
 
@@ -72,8 +71,9 @@ AB_fake<-cbind(A,B$Total_centro)
 AB<-merge(A,B,by ="Centro de salud",all = T,sort = F)
 ABC<-merge(AB,C,by = "Centro de salud",all = T,sort = F)
 ABCD<-merge(ABC,D,by = "Centro de salud",all = T,sort = F)
-ABCD[is.na(porc_mujeres),porc_mujeres:=0]
 ABCD[,porc_mujeres:=Total_Centro_Mujeres/Total_centro]
+ABCD[is.na(porc_mujeres),porc_mujeres:=0]
+
 
 # reshaping
 
